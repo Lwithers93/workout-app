@@ -5,25 +5,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Workout App</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- add cdn link to font awesome icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-    <div class="mainContainer"></div>
     <section id="selectSection">
-      <h1>what workout are you doing today?</h1>
-      <label for="workouts">Choose a workout:</label>
-      <select name="workouts" id="workouts">
-        <option value="" disabled selected>Select your workout!</option>
-        <option value="lowerBodyStrength">Lower Body - Strength Focus</option>
-        <option value="upperBodyStrength">Upper Body - Strength Focus</option>
-        <option value="lowerBodyVolume">Lower Body - Volume Focus</option>
-        <option value="upperBodyVolume">Upper Body - Volume Focus</option>
-      </select>
-      <button onclick="createWorkout()">Create Workout</button>
+      <div>
+        <h1>Welcome to your Workout Plan</h1>
+        <p>Choose what sort of workout you want to do today!</p>
+        <label for="workouts">Choose a workout:</label>
+        <select name="workouts" id="workouts">
+          <option value="" disabled selected>Select your workout!</option>
+          <option value="lowerBodyStrength">Lower Body - Strength Focus</option>
+          <option value="upperBodyStrength">Upper Body - Strength Focus</option>
+          <option value="lowerBodyVolume">Lower Body - Volume Focus</option>
+          <option value="upperBodyVolume">Upper Body - Volume Focus</option>
+        </select>
+        <button onclick="addWorkout()">Create Workout</button>
+        <!-- new button will populate existing elements rather than creating them -->
+        <div class="iconContainer">
+          <i class="fa-solid fa-dumbbell"></i
+          ><i class="fa-solid fa-weight-hanging"></i>
+        </div>
+      </div>
+    </section>
+
+    <section id="workoutInfo">
+      <div>
+        <!-- shows users workout type choice from dropdown -->
+        <h2 id="workoutChoice">Choice</h2>
+        <p>Let's go!</p>
+        <p>
+          Each of the below sections will tell you how many sets and repetitions
+          for each movement for this workout.
+        </p>
+        <p>
+          Stick to the rest periods provided! Some will be larger than others
+          but that's all part of the plan!
+        </p>
+        <p>
+          Most exercises have a range of reps (e.g. 8-12). This means you should
+          pick a weight that you can get 12 reps with in the first set!
+        </p>
+        <p>
+          Remember, good technique should come above all else! So, if you feel
+          your technique slipping, don't be afraid to decrease the weight
+          slightly!
+        </p>
+        <button onclick="gotoWorkout()">
+          <i class="fa-solid fa-dumbbell icon"></i> Begin!
+          <i class="fa-solid fa-dumbbell icon"></i>
+        </button>
+      </div>
     </section>
 
     <section id="workoutSection">
-      <h2 id="workoutChoice">Choice</h2>
+      <!-- container for exercise 1 -->
+      <div id="exContainer1" class="exContainer">
+        <div class="rowContainer">
+          <h4 class="exNumber">01</h4>
+          <h2 id="exName1">Sample Exercise</h2>
+          <p class="moveType"><i class="fa-solid fa-dumbbell"></i> Compound</p>
+        </div>
+        <div class="rowContainer">
+          <div class="colContainer">
+            <h4>Muscle Group Focus</h4>
+            <p id="muscleFocus1"></p>
+          </div>
+          <div class="colContainer">
+            <h4>Movement Type</h4>
+            <p id="moveType1"></p>
+          </div>
+        </div>
+        <div class="rowContainer">
+          <div class="sets details">
+            <h4>Sets</h4>
+            <p id="sets1"></p>
+          </div>
+          <div class="reps details">
+            <h4>Reps</h4>
+            <p id="reps1"></p>
+          </div>
+          <div class="rest details">
+            <h4>Rest</h4>
+            <p id="rest1"></p>
+          </div>
+        </div>
+        <div class="descriptionContainer">
+          <button class="collapsible">More Tips</button>
+          <!-- expands the collapisble -->
+          <div class="content">
+            <p>here is the hidden content.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- container for exercise 2 -->
+      <div id="exContainer2" class="exContainer">
+        <div class="rowContainer">
+          <h4 class="exNumber">01</h4>
+          <h2 id="exName2">Sample Exercise</h2>
+          <p class="moveType"><i class="fa-solid fa-dumbbell"></i> Compound</p>
+        </div>
+        <div class="rowContainer">
+          <div class="colContainer">
+            <h4>Muscle Group Focus</h4>
+            <p id="muscleFocus2"></p>
+          </div>
+          <div class="colContainer">
+            <h4>Movement Type</h4>
+            <p id="moveType2"></p>
+          </div>
+        </div>
+        <div class="rowContainer">
+          <div class="sets details">
+            <h4>Sets</h4>
+            <p id="sets2"></p>
+          </div>
+          <div class="reps details">
+            <h4>Reps</h4>
+            <p id="reps2"></p>
+          </div>
+          <div class="rest details">
+            <h4>Rest</h4>
+            <p id="rest2"></p>
+          </div>
+        </div>
+        <div class="descriptionContainer">
+          <button class="collapsible">More Tips</button>
+          <!-- expands the collapisble -->
+          <div class="content">
+            <p>here is the hidden content.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- container for exercise 3 -->
+      <div id="exContainer3" class="exContainer">
+        <div class="rowContainer">
+          <h4 class="exNumber">01</h4>
+          <h2 id="exName3">Sample Exercise</h2>
+          <p class="moveType"><i class="fa-solid fa-dumbbell"></i> Compound</p>
+        </div>
+        <div class="rowContainer">
+          <div class="colContainer">
+            <h4>Muscle Group Focus</h4>
+            <p id="muscleFocus3"></p>
+          </div>
+          <div class="colContainer">
+            <h4>Movement Type</h4>
+            <p id="moveType3"></p>
+          </div>
+        </div>
+        <div class="rowContainer">
+          <div class="sets details">
+            <h4>Sets</h4>
+            <p id="sets3"></p>
+          </div>
+          <div class="reps details">
+            <h4>Reps</h4>
+            <p id="reps3"></p>
+          </div>
+          <div class="rest details">
+            <h4>Rest</h4>
+            <p id="rest3"></p>
+          </div>
+        </div>
+        <div class="descriptionContainer">
+          <button class="collapsible">More Tips</button>
+          <!-- expands the collapisble -->
+          <div class="content">
+            <p>here is the hidden content.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- container for exercise 4 -->
+      <div id="exContainer1" class="exContainer">
+        <div class="rowContainer">
+          <h4 class="exNumber">01</h4>
+          <h2 id="exName4">Sample Exercise</h2>
+          <p class="moveType"><i class="fa-solid fa-dumbbell"></i> Accessory</p>
+        </div>
+        <div class="rowContainer">
+          <div class="colContainer">
+            <h4>Muscle Group Focus</h4>
+            <p id="muscleFocus4"></p>
+          </div>
+          <div class="colContainer">
+            <h4>Movement Type</h4>
+            <p id="moveType4"></p>
+          </div>
+        </div>
+        <div class="rowContainer">
+          <div class="sets details">
+            <h4>Sets</h4>
+            <p id="sets4"></p>
+          </div>
+          <div class="reps details">
+            <h4>Reps</h4>
+            <p id="reps4"></p>
+          </div>
+          <div class="rest details">
+            <h4>Rest</h4>
+            <p id="rest4"></p>
+          </div>
+        </div>
+        <div class="descriptionContainer">
+          <button class="collapsible">More Tips</button>
+          <!-- expands the collapisble -->
+          <div class="content">
+            <p>here is the hidden content.</p>
+          </div>
+        </div>
+      </div>
     </section>
+    <script src="data.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
