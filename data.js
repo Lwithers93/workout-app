@@ -122,7 +122,7 @@ var lowerBodyStrength = {
     },
     {
       moveType: "Accessories",
-      muscleGroups: lowerBodyAccessoryMuscles,
+      muscleGroups: "Quad / Glutes / Hamstrings",
       suggestions: lowerBodyAccessoryMachines,
       sets: "4",
       reps: "8-12",
